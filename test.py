@@ -26,15 +26,18 @@ metric = 'cross_entropy' # Loss function for binary classification
 
 # Initialize and train the neural network
 nn = NeuralNetwork(layer_dims, activation, metric)
-nn.train(X_train, Y_train.T, epoch=1000, alpha=0.01)
+nn.train(X_train, Y_train.T, epoch=100000, alpha=0.01)
 
 
 # print(len(nn.costs[19]))
 
 
 # Make predictions on the test set
-# Y_pred = nn.predict(X_test)
+Y_pred_proba = nn.predict(X_test)
+
+# Convert probabilities to class labels
+Y_pred = np.where(Y_pred_proba >= 0.5, 1, 0)
 
 # # Calculate the accuracy of the model
-# accuracy = accuracy_score(Y_test, Y_pred)
-# print(f"Accuracy: {accuracy}")
+accuracy = accuracy_score(Y_test, Y_pred)
+print(f"Accuracy: {accuracy}")
