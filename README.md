@@ -8,6 +8,7 @@ This project is a Python implementation of a neural network from scratch, design
 - [Neural Network from Scratch](#neural-network-from-scratch)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
+    - [Stuff left to implement](#stuff-left-to-implement)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Project Structure](#project-structure)
@@ -17,6 +18,15 @@ This project is a Python implementation of a neural network from scratch, design
 ## Introduction
 
 This neural network implementation covers both forward and backward propagation steps. It allows for experimentation and customization of neural network components like activation functions, cost functions, and parameter updates.
+
+### Stuff left to implement 
+
+- currently only supports cross_entropy
+- currently only supports logloss
+- currently only supports relu and sigmoid activation functions
+- have to add more docstrings
+- manage error handling
+- have to add optimizers
 
 ## Installation
 
