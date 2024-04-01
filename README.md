@@ -23,7 +23,7 @@ This neural network implementation covers both forward and backward propagation 
 To run this project, you need Python 3.6 or higher. You can clone the repository and install the required dependencies using pip:
 
 ```bash
-git clone https://github.com/yourusername/NeuralNetwork_from_Scratch.git
+git clone https://github.com/LordRaleigh7926/NeuralNetwork_from_Scratch.git
 cd NeuralNetwork_from_Scratch
 pip install numpy scikit-learn
 ```

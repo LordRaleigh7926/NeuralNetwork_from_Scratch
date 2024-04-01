@@ -119,7 +119,7 @@ class NeuralNetwork:
             X -- data set of examples you would like to label
             
             Returns:
-            p -- predictions for the given dataset X
+            pred -- predictions for the given dataset X
             """
             
             m = X.shape[1]
@@ -129,7 +129,7 @@ class NeuralNetwork:
             # Forward propagation
             probas, caches = forward_propagation(X.T, self.params, self.activation)
 
-            p = probas.squeeze()
+            pred = probas.squeeze()
             
                 
-            return p
+            return pred
