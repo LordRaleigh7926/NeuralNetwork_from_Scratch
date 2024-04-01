@@ -3,7 +3,7 @@ import numpy as np
 def computed_layers_backwards(dZ, cache):
 
 
-    A_prev, Z, W, b = cache
+    A_prev, W, b = cache
     m = A_prev.shape[1]
 
     dW = 1/m*(np.dot(dZ, A_prev.T))

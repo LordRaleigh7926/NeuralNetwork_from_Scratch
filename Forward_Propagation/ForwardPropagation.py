@@ -1,4 +1,4 @@
-from LayerActivation import activate_layer
+from .LayerActivation import activate_layer
 import numpy as np
 
 
@@ -15,7 +15,7 @@ def forward_propagation(X: np.ndarray, params: dict, activations:list):
         caches.append(cache)
 
 
-    Y_hat, cache = activate_layer(A, params['W'+str(L)], params['b'+str(L)], activations[l])
+    Y_hat, cache = activate_layer(A, params['W'+str(L)], params['b'+str(L)], activations[-1])
     caches.append(cache)
 
     return Y_hat, caches

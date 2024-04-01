@@ -1,7 +1,7 @@
 import numpy as np
 
-from LayerComputation import compute_layer
-from activation_funcs import *
+from .LayerComputation import compute_layer
+from .activation_funcs import *
 
 
 def activate_layer(prev_A, W, b, activation):
@@ -36,7 +36,11 @@ def activate_layer(prev_A, W, b, activation):
 
         A = leakyrelu(Z)
 
-    activation_cache = [A]
+    else:
+
+        raise ValueError("Unsupported Activation Function")
+
+    activation_cache = [A, Z]
 
     cache = [linear_cache, activation_cache]
 

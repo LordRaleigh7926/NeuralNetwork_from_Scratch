@@ -1,7 +1,10 @@
 import numpy as np
 
 def relu(x: np.ndarray) -> np.ndarray:
-    y = max(0,x)
+    y = np.maximum(0,x)
+    
+    assert(y.shape == x.shape)
+    
     return y
 
 
@@ -30,7 +33,7 @@ def swish(x: np.ndarray)-> np.ndarray:
 
 
 def leakyrelu(x: np.ndarray)-> np.ndarray:
-    y = max(0.1*x,x)
+    y = np.maximum(0.1*x,x)
     return y 
 
 

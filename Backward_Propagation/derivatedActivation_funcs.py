@@ -1,19 +1,23 @@
 import numpy as np 
 
 
-def sigmoid(x: np.ndarray) -> np.ndarray:
-    y = 1/(1+(np.exp(-x)))
-    return y
+def Differentiated_RELU(Z:np.ndarray, dA):
 
+    dZ = np.array(dA, copy=True) # just converting dz to a correct object.
+    
+    # When z <= 0, you should set dz to 0 as well. 
+    dZ[Z <= 0] = 0
 
-def Differentiated_RELU(x:np.ndarray):
+    return dZ
 
-    return np.where(x >= 0, 1, 0)
+def Differentiated_Sigmoid(Z:np.ndarray, dA):
 
-def Differentiated_Sigmoid(x:np.ndarray):
-
-    sigmoid_x = 1 / (1 + np.exp(-x))
-    return sigmoid_x * (1 - sigmoid_x)
+    s = 1/(1+np.exp(-Z))
+    dZ = dA * s * (1-s)
+    
+    assert (dZ.shape == Z.shape)
+    
+    return dZ
 
 
 
