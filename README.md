@@ -1,16 +1,18 @@
-```markdown
+
 # Neural Network from Scratch
 
 This project is a Python implementation of a neural network from scratch, designed for educational purposes. It aims to provide a hands-on understanding of how neural networks work by implementing the core algorithms manually.
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [Neural Network from Scratch](#neural-network-from-scratch)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Project Structure](#project-structure)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Introduction
 
