@@ -8,7 +8,7 @@ from NeuralNetwork import NeuralNetwork
 
 
 # Generate a binary classification dataset
-X, Y = make_classification(n_samples=1000, n_features=20, n_informative=2, n_redundant=10, random_state=42)
+X, Y = make_classification(n_samples=1000, n_features=20, n_informative=8, n_redundant=12, random_state=42)
 
 # Normalize the features
 scaler = StandardScaler()
@@ -24,7 +24,7 @@ metric = 'cross_entropy' # Loss function for binary classification
 
 # Initialize and train the neural network
 nn = NeuralNetwork(layer_dims, activation, metric)
-nn.train(X_train, Y_train.T, epoch=2000, alpha=0.01, verbose=True, L2_Regularization_lambd=0.5)
+nn.train(X_train, Y_train.T, epoch=3000, alpha=0.01, verbose=True, L2_Regularization_lambd=0.001)
 
 
 # Make predictions on the test set

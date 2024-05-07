@@ -97,7 +97,11 @@ class NeuralNetwork:
         
         if not isinstance(L2_Regularization_lambd, float):
 
-            raise TypeError(f"L2_Regularization_lambd must be a float. Whereas here a {type(L2_Regularization_lambd)} is provided")
+            if not isinstance(L2_Regularization_lambd, int):
+
+                raise TypeError(f"L2_Regularization_lambd must be a float or int. Whereas here a {type(L2_Regularization_lambd)} is provided")
+            
+            L2_Regularization_lambd = float(L2_Regularization_lambd)
 
         if not isinstance(epoch, int):
 
