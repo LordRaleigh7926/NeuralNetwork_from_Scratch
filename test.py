@@ -24,7 +24,7 @@ metric = 'cross_entropy' # Loss function for binary classification
 
 # Initialize and train the neural network
 nn = NeuralNetwork(layer_dims, activation, metric)
-nn.train(X_train, Y_train.T, epoch=10000, alpha=0.01)
+nn.train(X_train, Y_train.T, epoch=2000, alpha=0.01, verbose=True)
 
 
 # Make predictions on the test set
