@@ -72,9 +72,9 @@ class NeuralNetwork:
 
         self.metric = metric
 
-        # --------- ------------------------------------ -------
+        # ------------------------------------------------------
 
-    def train(self, X:np.ndarray, Y:np.ndarray, epoch: int, alpha: float, verbose: bool=False):
+    def train(self, X:np.ndarray, Y:np.ndarray, epoch: int, alpha: float, verbose: bool=False, L2_Regularization_lambd:float = 0.0):
 
         """
         Trains the neural network using the given data for a specified number of epochs.
@@ -88,20 +88,34 @@ class NeuralNetwork:
             epoch (int): The number of epochs to train the network. An epoch is a complete pass through the entire training dataset.
             alpha (float): The learning rate, which determines the step size at each iteration while updating the model's parameters.
             verbose (bool, optional): If True, prints the cost after each epoch. This can be useful for monitoring the training process. Defaults to False.
+            L2_Regularization_lambd (float, optional): The L2 regularizer. Used for regularization. Default value is 0 that means no regularization.
         """
 
         if self.layer_dims[0] != X.shape[1]:
 
             raise ValueError(f"Dims of input_layer != X.shape[1] || {self.layer_dims[0]} != {X.shape[1]}")
         
+        if not isinstance(L2_Regularization_lambd, float):
+
+            raise TypeError(f"L2_Regularization_lambd must be a float. Whereas here a {type(L2_Regularization_lambd)} is provided")
+
+        if not isinstance(epoch, int):
+
+            raise TypeError(f"epoch must be an integer. Whereas here a {type(epoch)} is provided")
+
+        if not isinstance(alpha, float):
+
+            raise TypeError(f"alpha must be a float. Whereas here a {type(alpha)} is provided")
+
+        
         for i in range(0, epoch):
 
         
             Y_Hat, caches = forward_propagation(X.T, self.params, self.activation)
             
-            cost = compute_cost(Y_Hat, Y.reshape(-1, 1).T, self.cost_metric)
+            cost = compute_cost(Y_Hat, Y.reshape(-1, 1).T, self.cost_metric, self.params, L2_Regularization_lambd)
             
-            grads = backward_propagation(Y_Hat, Y, caches, self.activation, self.metric)
+            grads = backward_propagation(Y_Hat, Y, caches, self.activation, self.metric, lambd=L2_Regularization_lambd)
 
     
             self.params = update_parameters(self.params, grads, alpha)
